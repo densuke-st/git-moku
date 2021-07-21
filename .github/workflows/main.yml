@@ -48,7 +48,9 @@ jobs:
           GITHUB_EMAIL: "densuke+autobuild@st.kobedenshi.ac.jp"
         run: |
           git rm -fr .
-          cp -vr /tmp/html/ ./
+          cp -vr /tmp/html/* ./
+          cp -vr /tmp/html/.* ./
+          rmdir /tmp/html
           git config --local user.name "${GITHUB_USER}"
           git config --local user.email "${GITHUB_EMAIL}"
           git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
