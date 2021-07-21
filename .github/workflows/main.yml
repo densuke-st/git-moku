@@ -27,10 +27,8 @@ jobs:
 
       - name: deploy docs
         run: |
-          mv deploy/.nojekyll .
-          rm -fr deploy
-          cp -r doc/build/html deploy
-          mv .nojekyll deploy/
+          mv doc/build/html /tmp/
+          touch /tmp/html/.nojekyll
 
       - name: deploy configuration
         run: |
@@ -44,9 +42,12 @@ jobs:
           GITHUB_USER: "autobuilder"
           GITHUB_EMAIL: "densuke+autobuild@st.kobedenshi.ac.jp"
         run: |
+          git checkout gh-pages
+          git rm -fr .
+          cp -vr /tmp/html/ ./
           git config --local user.name "${GITHUB_USER}"
           git config --local user.email "${GITHUB_EMAIL}"
           git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
-          git add deploy
+          git add .
           git commit -m "auto rebuilding site"
-          git push origin main
+          git push origin gh-pages
