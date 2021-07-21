@@ -22,7 +22,6 @@ jobs:
 
       - name: build
         run: |
-          cd doc
           docker run --rm -v `pwd`/doc:/work densuke/sphinx-pdf make html
 
       - name: deploy docs
