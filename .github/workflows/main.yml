@@ -1,0 +1,51 @@
+name: release
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: densuke/sphinx-pdf
+    if: "!contains(github.event.head_commit.message, 'auto rebuilding site')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: "main"
+
+      - name: install dependencies
+        run: |
+          cd doc
+          [ -f requirements.txt ] && pip install -r requirements.txt
+
+      - name: build
+        run: |
+          cd doc
+          make html
+
+      - name: deploy docs
+        run: |
+          mv deploy/.nojykell .
+          rm -fr deploy
+          cp -r doc/build/html deploy
+          mv .nojykell html/
+
+      - name: deploy configuration
+        run: |
+          mkdir ~/.ssh
+          ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+          echo "${{ secrets.MY_ACTIONS_DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          chmod 400 ~/.ssh/id_rsa
+
+      - name: push
+        env:
+          GITHUB_USER: "autobuilder"
+          GITHUB_EMAIL: "densuke+autobuild@st.kobedenshi.ac.jp"
+        run: |
+          git config --local user.name "${GITHUB_USER}"
+          git config --local user.email "${GITHUB_EMAIL}"
+          git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
+          git add deploy
+          git commit -m "auto rebuilding site"
+          git push origin master
