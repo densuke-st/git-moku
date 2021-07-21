@@ -26,7 +26,7 @@ jobs:
 
       - name: deploy docs
         run: |
-          mv doc/build/html /tmp/
+          cp -vr doc/build/html /tmp/
           touch /tmp/html/.nojekyll
 
       - name: deploy configuration
