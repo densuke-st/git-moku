@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'auto rebuilding site')"
     steps:
-      - name: Checkout
+      - name: Checkout(main)
         uses: actions/checkout@v2
         with:
           ref: "main"
@@ -37,12 +37,16 @@ jobs:
           echo "${{ secrets.MY_REPO }}" > ~/.ssh/id_rsa
           chmod 400 ~/.ssh/id_rsa
 
+      - name: Checkout(gh-pages)
+        uses: actions/checkout@v2
+        with:
+          ref: "gh-pages"
+
       - name: push
         env:
           GITHUB_USER: "autobuilder"
           GITHUB_EMAIL: "densuke+autobuild@st.kobedenshi.ac.jp"
         run: |
-          git checkout gh-pages
           git rm -fr .
           cp -vr /tmp/html/ ./
           git config --local user.name "${GITHUB_USER}"
