@@ -36,7 +36,7 @@ jobs:
         run: |
           mkdir ~/.ssh
           ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-          echo "${{ secrets.MY_ACTIONS_DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.MY_REPO }}" > ~/.ssh/id_rsa
           chmod 400 ~/.ssh/id_rsa
 
       - name: push
