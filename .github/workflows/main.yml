@@ -27,10 +27,10 @@ jobs:
 
       - name: deploy docs
         run: |
-          mv deploy/.nojykell .
+          mv deploy/.nojekyll .
           rm -fr deploy
           cp -r doc/build/html deploy
-          mv .nojykell html/
+          mv .nojekyll deploy/
 
       - name: deploy configuration
         run: |
