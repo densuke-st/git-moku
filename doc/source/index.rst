@@ -10,6 +10,9 @@ Welcome to Gitもくもく勉強会(仮)'s documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   pre/index
+   setup/index
+
 
 
 Indices and tables
