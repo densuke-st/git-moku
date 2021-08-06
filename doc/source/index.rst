@@ -13,6 +13,9 @@ Welcome to Gitもくもく勉強会(仮)'s documentation!
    pre/index
    setup/index
    whats/index
+   lv1/index
+   lv2/index
+   lv3/index
 
 .. todolist::
 
