@@ -95,7 +95,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../whats/index.html">gitってなんなのか</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">レベル1: ローカルコミット</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="clone.html">他の人のソースを取得する</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">新規にリポジトリを作る</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">新規にリポジトリを作る</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vscodeinit">vscodeにおけるinit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#git"><strong class="command">git</strong> で作成したディレクトリを開く</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vscode">vscodeの中で初期化する</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="add.html">リポジトリ操作</a></li>
 </ul>
 </li>
@@ -203,6 +210,51 @@
 </dl>
 <p>そしてディレクトリそのものは <strong>ワークツリー</strong> と呼びます。</p>
 <p>次は、ファイルを配置してリポジトリに登録してみましょう。</p>
+<div class="section" id="vscodeinit">
+<h2>vscodeにおけるinit<a class="headerlink" href="#vscodeinit" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Visual Studio Code(vscode)上でのgitの利用については2通り考えられます。</p>
+<ul class="simple">
+<li><p><strong class="command">git</strong> で作ったディレクトリ(リポジトリ・ワークツリーを開く</p></li>
+<li><p>vscode自身で作る</p></li>
+</ul>
+<div class="section" id="git">
+<h3><strong class="command">git</strong> で作成したディレクトリを開く<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ディレクトリ(フォルダー)を開けばgit機能が有効な状態となります。</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">コマンドラインから開く例</span><a class="headerlink" href="#id4" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ls -a
+<span class="go">.    ..    .git    sample1.py # .gitがあるのでリポジトリ込み状態</span>
+<span class="gp">$</span> code . <span class="c1"># カレントディレクトリをvscodeで開く</span>
+</pre></div>
+</div>
+</div>
+<div class="figure align-default" id="id5">
+<img alt="../_images/05-git-vscode.png" src="../_images/05-git-vscode.png" />
+<p class="caption"><span class="caption-text">vscodeでgitリポジトリのディレクトリを開いた場合</span><a class="headerlink" href="#id5" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p><code class="file docutils literal notranslate"><span class="pre">.git</span></code> ディレクトリが認識されると、現在のブランチ名が下部ステータス部に追加されます。
+また、gitリポジトリかどうかにかかわらず、左にgitによる履歴管理のボタンが用意されています。</p>
+</div>
+<div class="section" id="vscode">
+<h3>vscodeの中で初期化する<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>新規に作ったディレクトリにおいて、vscodeにてリポジトリの生成(<strong class="command">git init</strong> 相当)も可能です。</p>
+<div class="figure align-default" id="id6">
+<img alt="../_images/06-new-dir-vscode.png" src="../_images/06-new-dir-vscode.png" />
+<p class="caption"><span class="caption-text">新規に作ったばかりのディレクトリ、リポジトリを含まないのでステータスに出ていない</span><a class="headerlink" href="#id6" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>リポジトリを生成するには、ソース管理用のアイコンから作成(初期化)が可能です。</p>
+<div class="figure align-default" id="id7">
+<img alt="../_images/07-git-init-vscode.png" src="../_images/07-git-init-vscode.png" />
+<p class="caption"><span class="caption-text">初期化を指示する</span><a class="headerlink" href="#id7" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>もちろんコマンドパレットからも初期化の指示は可能です。</p>
+<div class="figure align-default" id="id8">
+<img alt="../_images/08-git-init-palette.png" src="../_images/08-git-init-palette.png" />
+<p class="caption"><span class="caption-text">初期化を指示する(コマンドパレットから)</span><a class="headerlink" href="#id8" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>こちらは対象のディレクトリの確認が出る(候補として開いているディレクトリが入っている)ので、そのまま選択すれば初期化処理が終わります。</p>
+</div>
+</div>
 </div>
 
 
