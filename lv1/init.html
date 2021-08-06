@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>レベル1: ローカルコミット &mdash; Gitもくもく勉強会(仮) 20210721 ドキュメント</title>
+  <title>新規にリポジトリを作る &mdash; Gitもくもく勉強会(仮) 20210721 ドキュメント</title>
   
 
   
@@ -42,8 +42,8 @@
     
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="他の人のソースを取得する" href="clone.html" />
-    <link rel="prev" title="gitってなんなのか" href="../whats/index.html" /> 
+    <link rel="next" title="リポジトリ操作" href="add.html" />
+    <link rel="prev" title="他の人のソースを取得する" href="clone.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,9 +93,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../pre/index.html">はじめに</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../setup/index.html">環境構築</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../whats/index.html">gitってなんなのか</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">レベル1: ローカルコミット</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">レベル1: ローカルコミット</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="clone.html">他の人のソースを取得する</a></li>
-<li class="toctree-l2"><a class="reference internal" href="init.html">新規にリポジトリを作る</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">新規にリポジトリを作る</a></li>
 <li class="toctree-l2"><a class="reference internal" href="add.html">リポジトリ操作</a></li>
 </ul>
 </li>
@@ -149,13 +149,15 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>レベル1: ローカルコミット</li>
+          <li><a href="index.html">レベル1: ローカルコミット</a> &raquo;</li>
+        
+      <li>新規にリポジトリを作る</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/lv1/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/lv1/init.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -168,36 +170,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="level1">
-<span id="id1"></span><h1>レベル1: ローカルコミット<a class="headerlink" href="#level1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>目標は以下のあたり</p>
-<ul class="simple">
-<li><p>gitのリポジトリをローカルで作れます</p></li>
-<li><p>他の人のリポジトリを引き出せます</p></li>
-<li><p>とりあえずコミットできます</p></li>
-</ul>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="clone.html">他の人のソースを取得する</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="clone.html#id2">取得元を確認する</a></li>
-<li class="toctree-l2"><a class="reference internal" href="clone.html#clone">cloneを行う</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="clone.html#id3">コマンドラインで行う</a></li>
-<li class="toctree-l3"><a class="reference internal" href="clone.html#ide">IDEで行う</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="clone.html#zip">zipと何が違うの?</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="init.html">新規にリポジトリを作る</a></li>
-<li class="toctree-l1"><a class="reference internal" href="add.html">リポジトリ操作</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="add.html#id2">ファイルの登録</a></li>
-<li class="toctree-l2"><a class="reference internal" href="add.html#id3">コミット</a></li>
-<li class="toctree-l2"><a class="reference internal" href="add.html#id4">ファイルを編集してみる</a></li>
-<li class="toctree-l2"><a class="reference internal" href="add.html#id5">今度は自分でやってみよう</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="lv1-init">
+<span id="id1"></span><h1>新規にリポジトリを作る<a class="headerlink" href="#lv1-init" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>適当なディレクトリを用意して、ローカルのリポジトリを作ってみましょう。</p>
+<ol class="arabic simple">
+<li><p><code class="file docutils literal notranslate"><span class="pre">my-hello-world</span></code> ディレクトリを作り、その中で端末を開きます</p></li>
+<li><p><strong class="command">git init</strong> コマンドでリポジトリを生成します</p></li>
+</ol>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">リポジトリの作成(ローカル)</span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> プロンプトはUNIX向けですが、PowerShellでも同じ操作ができます
+<span class="gp">$</span> mkdir my-hello-world
+<span class="gp">$</span> <span class="nb">cd</span> my-hello-world
+<span class="gp">$</span> git init
+<span class="go">Initialized empty Git repository in /private/tmp/my-hello-world/.git/</span>
+</pre></div>
 </div>
+</div>
+<p>このとき、initしたディレクトリにおいて、 <code class="file docutils literal notranslate"><span class="pre">.git</span></code> というディレクトリが作られます(UNIX環境であればドットファイルのため通常は見えない)。
+このディレクトリの中は大きく2つの領域として使われ、全体として <strong>リポジトリ</strong> と呼ばれます。</p>
+<div class="figure align-default" id="id3">
+<img alt="../_images/repo-local-00.png" src="../_images/repo-local-00.png" />
+<p class="caption"><span class="caption-text">init直後の状態</span><a class="headerlink" href="#id3" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p><code class="file docutils literal notranslate"><span class="pre">.git</span></code> 自体をリポジトリと一般的に呼びますが…</p>
+<dl class="simple">
+<dt>リポジトリ域(狭義での「リポジトリ」)</dt><dd><p>コミットと呼ばれる変更不可のデータを納める領域、ローカルでコミットしているものもありますし、リモートから入ってくるものもあります。
+各コミットは親コミットとのリンクを持ちます、</p>
+</dd>
+<dt>ステージ(キャッシュ)</dt><dd><p>コミットされる前の状態(ファイル群)が納められる領域、コミット後もコピーを(論理的に)持って差分抽出の補助も行います。</p>
+</dd>
+</dl>
+<p>そしてディレクトリそのものは <strong>ワークツリー</strong> と呼びます。</p>
+<p>次は、ファイルを配置してリポジトリに登録してみましょう。</p>
 </div>
 
 
@@ -206,8 +211,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="clone.html" class="btn btn-neutral float-right" title="他の人のソースを取得する" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../whats/index.html" class="btn btn-neutral float-left" title="gitってなんなのか" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="add.html" class="btn btn-neutral float-right" title="リポジトリ操作" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="clone.html" class="btn btn-neutral float-left" title="他の人のソースを取得する" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
