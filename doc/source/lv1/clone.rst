@@ -81,3 +81,29 @@ clone操作は指定されたURLに存在する「リポジトリ」のクロー
 なお、 `densuke-st/hello-world <https://github.com/densuke-st/hello-world>`_ の :file:`Java/Maven` ディレクトリはEclipseにてインポート可能にしてます。
 
 このように、取得用URLがわかれば、自分の手元にコードのコピーを持つことが可能です。
+
+zipと何が違うの?
+===========================
+
+これだけだと :guilabel:`Code` にてzipファイルを落としたのと変わらないと思います。
+でも実は大きく違います。
+
+- 履歴が見られます(:command:`git log`)
+    .. figure:: images/04-git-log.png
+
+- 誰かが更新したときに、更新分を取得可能です(pullの挙動は後ほど入ります)
+     .. code-block:: console
+        :caption: コードの更新(git pull)
+
+        $ git pull
+        remote: Enumerating objects: 21, done.
+        remote: Counting objects: 100% (21/21), done.
+        remote: Compressing objects: 100% (3/3), done.
+        remote: Total 11 (delta 2), reused 11 (delta 2), pack-reused 0
+        Unpacking objects: 100% (11/11), 809 bytes | 101.00 KiB/s, done.
+        From https://github.com/densuke-st/hello-world
+        dcd3b13..826094c  development -> origin/development
+        Updating dcd3b13..826094c
+        Fast-forward
+        Java/Maven/helloworld/src/main/java/jp/example/App.java | 2 +-
+        1 file changed, 1 insertion(+), 1 deletion(-)
