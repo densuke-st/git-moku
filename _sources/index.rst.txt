@@ -14,7 +14,7 @@ Welcome to Gitもくもく勉強会(仮)'s documentation!
    setup/index
    whats/index
 
-
+.. todolist::
 
 Indices and tables
 ==================
