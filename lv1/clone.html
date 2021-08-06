@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>他の人のソースを取得する &mdash; Gitもくもく勉強会(仮) 20210721 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="レベル2: ブランチ操作" href="../lv2/index.html" />
+    <link rel="prev" title="レベル1: ローカルコミット" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Gitもくもく勉強会(仮)
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../pre/index.html">はじめに</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup/index.html">環境構築</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whats/index.html">gitってなんなのか</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">レベル1: ローカルコミット</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">他の人のソースを取得する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">取得元を確認する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clone">cloneを行う</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">コマンドラインで行う</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#zip">zipと何が違うの?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../lv2/index.html">レベル2: ブランチ操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lv3/index.html">レベル3: リポジトリ上での共有</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Gitもくもく勉強会(仮)</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">レベル1: ローカルコミット</a> &raquo;</li>
+        
+      <li>他の人のソースを取得する</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/lv1/clone.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lv1-clone">
+<span id="id1"></span><h1>他の人のソースを取得する<a class="headerlink" href="#lv1-clone" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://github.io">GitHub</a> 等のリポジトリサイトから、任意の公開リポジトリを引っ張ってこれるようになりましょう。
+グループ開発などでリポジトリを共有するときなどに真っ先にこれが必要になります。</p>
+<ol class="arabic simple">
+<li><p>取得元を確認する</p></li>
+<li><p>cloneを行う</p></li>
+</ol>
+<div class="section" id="id2">
+<h2>取得元を確認する<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>取得元に関しては、大雑把に2つのケースがあります。</p>
+<ul class="simple">
+<li><p>プロジェクトサイトを教えてもらい、そこから取得</p></li>
+<li><p>clone用のURLを直接教えてもらう</p></li>
+</ul>
+<p>プロジェクトサイトがGithubなどのコード公開用のサイトであれば、その中から確認できます。
+サンプルとして、Hello World集的なものをちょっと作ってます。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/densuke-st/hello-world">densuke-st/hello-world</a></p></li>
+</ul>
+<div class="figure align-default" id="id6">
+<img alt="../_images/01-densuke-st-hello-world.png" src="../_images/01-densuke-st-hello-world.png" />
+<p class="caption"><span class="caption-text">densuke-st/hello-world</span><a class="headerlink" href="#id6" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>Githubの場合は、コード取得として緑色の <span class="guilabel">Code</span> 部分から、取得が可能です。</p>
+<div class="figure align-default" id="id7">
+<img alt="../_images/02-click-code.png" src="../_images/02-click-code.png" />
+<p class="caption"><span class="caption-text">Codeボタンを押したとき</span><a class="headerlink" href="#id7" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>通常は &quot;HTTPS&quot; タブで確認できるURLを使うと良いでしょう。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>GitHub CLI(<strong class="command">gh</strong> コマンド)をインストールした場合、コマンドラインから少しだけ楽に操作できます。
+詳しくは <a class="reference external" href="https://cli.github.com/">GitHub CLI</a> を参照してください。</p>
+</div>
+</div>
+<div class="section" id="clone">
+<h2>cloneを行う<a class="headerlink" href="#clone" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>取得元URLが確認できたら、cloneを行います。
+clone操作は指定されたURLに存在する「リポジトリ」のクローンをローカルに作成する操作です。</p>
+<div class="section" id="id3">
+<h3>コマンドラインで行う<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>コマンドラインから行う場合、対象となるディレクトリにて <strong class="command">git</strong> を実行します。
+ここでは <a class="reference external" href="https://github.com/densuke-st/hello-world">densuke-st/hello-world</a> のclone URLを用いて行います。</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">git clone処理</span><a class="headerlink" href="#id8" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> Linux/macOS
+<span class="gp">$</span> git clone https://github.com/densuke-st/hello-world.git
+
+<span class="gp">#</span> Windows<span class="o">(</span>PowerShell<span class="o">)</span>
+<span class="go">PS&gt; git clone https://github.com/densuke-st/hello-world.git</span>
+</pre></div>
+</div>
+</div>
+<div class="figure align-default" id="id9">
+<img alt="../_images/03-git-clone.png" src="../_images/03-git-clone.png" />
+<p class="caption"><span class="caption-text">git cloneによるコード取得</span><a class="headerlink" href="#id9" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>この作業により、ディレクトリ <code class="file docutils literal notranslate"><span class="pre">hello-world</span></code> ができあがります。
+既にこのディレクトリが存在している場合は失敗します。
+既存のディレクトリを削除するか、名前を変えるなどの対策が必要です。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> git clone https://github.com/densuke-st/hello-world.git
+<span class="go">fatal: destination path &#39;hello-world&#39; already exists and is not an empty directory.</span>
+</pre></div>
+</div>
+</div>
+<p>あとはできあがったディレクトリの中を好きに探索してください。
+なお、 <a class="reference external" href="https://github.com/densuke-st/hello-world">densuke-st/hello-world</a> の <code class="file docutils literal notranslate"><span class="pre">Java/Maven</span></code> ディレクトリはEclipseにてインポート可能にしてます。</p>
+<p>このように、取得用URLがわかれば、自分の手元にコードのコピーを持つことが可能です。</p>
+</div>
+</div>
+<div class="section" id="zip">
+<h2>zipと何が違うの?<a class="headerlink" href="#zip" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>これだけだと <span class="guilabel">Code</span> にてzipファイルを落としたのと変わらないと思います。
+でも実は大きく違います。</p>
+<ul>
+<li><dl>
+<dt>履歴が見られます(<strong class="command">git log</strong>)</dt><dd><div class="figure align-default">
+<img alt="../_images/04-git-log.png" src="../_images/04-git-log.png" />
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>誰かが更新したときに、更新分を取得可能です(pullの挙動は後ほど入ります)</dt><dd><div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">コードの更新(git pull)</span><a class="headerlink" href="#id10" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> git pull
+<span class="go">remote: Enumerating objects: 21, done.</span>
+<span class="go">remote: Counting objects: 100% (21/21), done.</span>
+<span class="go">remote: Compressing objects: 100% (3/3), done.</span>
+<span class="go">remote: Total 11 (delta 2), reused 11 (delta 2), pack-reused 0</span>
+<span class="go">Unpacking objects: 100% (11/11), 809 bytes | 101.00 KiB/s, done.</span>
+<span class="go">From https://github.com/densuke-st/hello-world</span>
+<span class="go">dcd3b13..826094c  development -&gt; origin/development</span>
+<span class="go">Updating dcd3b13..826094c</span>
+<span class="go">Fast-forward</span>
+<span class="go">Java/Maven/helloworld/src/main/java/jp/example/App.java | 2 +-</span>
+<span class="go">1 file changed, 1 insertion(+), 1 deletion(-)</span>
+</pre></div>
+</div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../lv2/index.html" class="btn btn-neutral float-right" title="レベル2: ブランチ操作" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="レベル1: ローカルコミット" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, 佐藤 大輔.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
