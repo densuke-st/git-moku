@@ -14,3 +14,5 @@
 .. toctree::
 
     clone
+    init
+    add
