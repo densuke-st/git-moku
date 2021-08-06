@@ -12,6 +12,7 @@ Welcome to Gitもくもく勉強会(仮)'s documentation!
 
    pre/index
    setup/index
+   whats/index
 
 
 
