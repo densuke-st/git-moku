@@ -17,7 +17,7 @@ Welcome to Gitもくもく勉強会(仮)'s documentation!
    lv2/index
    lv3/index
 
-
+.. todolist::
 
 Indices and tables
 ==================
