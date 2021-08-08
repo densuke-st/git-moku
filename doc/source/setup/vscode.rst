@@ -1,7 +1,7 @@
 .. _setup-vscode:
 
 ====================================
-Visual Studio Codeでのセットアップ
+Visual Studio Codeでの準備
 ====================================
 
 Visual Studio Code(vscode)でのgitの初期設定は特にありません。
