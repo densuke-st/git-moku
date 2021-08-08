@@ -146,6 +146,33 @@ gitでは **ブランチ** という概念で並行した開発が行えます�
 
 完了することで、プロジェクトのインポート処理が完了し、編集可能になります。
 
+Mavenプロジェクトなどの場合
+--------------------------------------------
+
+`Maven <https://maven.apache.org/>`_ や `Gradle <https://gradle.org/>`_ など、ビルドを管理するフレームワークを使っている場合、
+Eclipseプロジェクトと異なり、(設定次第ですが)論理的な設定を元に必要なライブラリ情報などを取り込んで動かせます
+
+ただしEclipseのプロジェクトではないため、内部的にEclipseプロジェクトとして見せるためのプラグインというものを通すことで、透過的に扱えるようになっています。
+
+- Mavenの利用であれば `M2Eclipse <https://www.eclipse.org/m2e/>`_ をインストール
+    - 学校配布のEclipseでは標準で組み込んでいます
+    - ただしGit経由で取り込むための機能が入っていないため、SCMの追加(:menuselection:`インポート --> SVNからMavenプロジェクトをインポート --> m2eマーケットプレース` でegitプラグインを足す必要があります
+        .. figure:: images/31-scmplugin-eclipse.png
+
+            m2e用のプラグイン追加マーケットプレース
+- Gradleの利用であれば、マーケットプレース(:menuselection:`ヘルプ --> Eclipseマーケットプレース`) にてGradle向けのプラグインを検索して入れることができます。ただ私はEclipseにてはGradleを使っていないので各自で調べてください
+
+インポート時に  :menuselection:`インポート --> SVNからMavenプロジェクトをチェックアウト` で進めてもらうと、Gitのクローン用URLを渡すことでMavenプロジェクトを取り込めます。
+
+.. figure:: images/28-checkout-mvn-eclipse.png
+
+    SVNからMavenプロジェクトをチェックアウト ※SVNだけど気にしない
+
+.. figure:: images/29-me2git-clone-eclipse.png
+
+    Clone用のURLを渡す
+
+あとは指示に従うことでEclipseプロジェクトをインポートし、ライブラリ類を裏で取得して利用可能になります。
 
 
 zipと何が違うの?
