@@ -101,6 +101,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#vscode">vscodeの中で初期化する</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#eclipse">Eclipseの中で初期化する</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">「プロジェクトの親フォルダー内のリポジトリーを使用または作成」 のチェックを使う</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">別の場所に用意されるリポジトリ専用エリアを使用する</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="add.html">リポジトリ操作</a></li>
@@ -184,8 +189,8 @@
 <li><p><code class="file docutils literal notranslate"><span class="pre">my-hello-world</span></code> ディレクトリを作り、その中で端末を開きます</p></li>
 <li><p><strong class="command">git init</strong> コマンドでリポジトリを生成します</p></li>
 </ol>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">リポジトリの作成(ローカル)</span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">リポジトリの作成(ローカル)</span><a class="headerlink" href="#id5" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> プロンプトはUNIX向けですが、PowerShellでも同じ操作ができます
 <span class="gp">$</span> mkdir my-hello-world
 <span class="gp">$</span> <span class="nb">cd</span> my-hello-world
@@ -196,9 +201,9 @@
 </div>
 <p>このとき、initしたディレクトリにおいて、 <code class="file docutils literal notranslate"><span class="pre">.git</span></code> というディレクトリが作られます(UNIX環境であればドットファイルのため通常は見えない)。
 このディレクトリの中は大きく2つの領域として使われ、全体として <strong>リポジトリ</strong> と呼ばれます。</p>
-<div class="figure align-default" id="id3">
+<div class="figure align-default" id="id6">
 <img alt="../_images/repo-local-00.png" src="../_images/repo-local-00.png" />
-<p class="caption"><span class="caption-text">init直後の状態</span><a class="headerlink" href="#id3" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">init直後の状態</span><a class="headerlink" href="#id6" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p><code class="file docutils literal notranslate"><span class="pre">.git</span></code> 自体をリポジトリと一般的に呼びますが…</p>
 <dl class="simple">
@@ -220,17 +225,17 @@
 <div class="section" id="git">
 <h3><strong class="command">git</strong> で作成したディレクトリを開く<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ディレクトリ(フォルダー)を開けばgit機能が有効な状態となります。</p>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">コマンドラインから開く例</span><a class="headerlink" href="#id4" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">コマンドラインから開く例</span><a class="headerlink" href="#id7" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ls -a
 <span class="go">.    ..    .git    sample1.py # .gitがあるのでリポジトリ込み状態</span>
 <span class="gp">$</span> code . <span class="c1"># カレントディレクトリをvscodeで開く</span>
 </pre></div>
 </div>
 </div>
-<div class="figure align-default" id="id5">
+<div class="figure align-default" id="id8">
 <img alt="../_images/05-git-vscode.png" src="../_images/05-git-vscode.png" />
-<p class="caption"><span class="caption-text">vscodeでgitリポジトリのディレクトリを開いた場合</span><a class="headerlink" href="#id5" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">vscodeでgitリポジトリのディレクトリを開いた場合</span><a class="headerlink" href="#id8" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p><code class="file docutils literal notranslate"><span class="pre">.git</span></code> ディレクトリが認識されると、現在のブランチ名が下部ステータス部に追加されます。
 また、gitリポジトリかどうかにかかわらず、左にgitによる履歴管理のボタンが用意されています。</p>
@@ -238,21 +243,101 @@
 <div class="section" id="vscode">
 <h3>vscodeの中で初期化する<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>新規に作ったディレクトリにおいて、vscodeにてリポジトリの生成(<strong class="command">git init</strong> 相当)も可能です。</p>
-<div class="figure align-default" id="id6">
+<div class="figure align-default" id="id9">
 <img alt="../_images/06-new-dir-vscode.png" src="../_images/06-new-dir-vscode.png" />
-<p class="caption"><span class="caption-text">新規に作ったばかりのディレクトリ、リポジトリを含まないのでステータスに出ていない</span><a class="headerlink" href="#id6" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">新規に作ったばかりのディレクトリ、リポジトリを含まないのでステータスに出ていない</span><a class="headerlink" href="#id9" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p>リポジトリを生成するには、ソース管理用のアイコンから作成(初期化)が可能です。</p>
-<div class="figure align-default" id="id7">
+<div class="figure align-default" id="id10">
 <img alt="../_images/07-git-init-vscode.png" src="../_images/07-git-init-vscode.png" />
-<p class="caption"><span class="caption-text">初期化を指示する</span><a class="headerlink" href="#id7" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">初期化を指示する</span><a class="headerlink" href="#id10" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p>もちろんコマンドパレットからも初期化の指示は可能です。</p>
-<div class="figure align-default" id="id8">
+<div class="figure align-default" id="id11">
 <img alt="../_images/08-git-init-palette.png" src="../_images/08-git-init-palette.png" />
-<p class="caption"><span class="caption-text">初期化を指示する(コマンドパレットから)</span><a class="headerlink" href="#id8" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">初期化を指示する(コマンドパレットから)</span><a class="headerlink" href="#id11" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p>こちらは対象のディレクトリの確認が出る(候補として開いているディレクトリが入っている)ので、そのまま選択すれば初期化処理が終わります。</p>
+</div>
+</div>
+<div class="section" id="eclipse">
+<h2>Eclipseの中で初期化する<a class="headerlink" href="#eclipse" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Eclipseの場合、少々勝手が異なります。</p>
+<p>新規にプロジェクトを作成するとき、最初からgitを組み込むということはできないようです。
+一度新規プロジェクトを生成してから「チーム」にて設定をすることになります。</p>
+<p>ここではまず、gitsampleプロジェクト(Java)を作った状態とします。特に細かい設定はないので途中画面は省略します。</p>
+<div class="figure align-default" id="id12">
+<img alt="../_images/14-newproject-eclipse.png" src="../_images/14-newproject-eclipse.png" />
+<p class="caption"><span class="caption-text">Eclipseで新規プロジェクトを作った状態</span><a class="headerlink" href="#id12" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>このプロジェクトをgitで管理したい場合、プロジェクトのコンテキストメニューより、  <span class="menuselection">チーム ‣ プロジェクトの共用</span> へ進みます。</p>
+<div class="figure align-default" id="id13">
+<img alt="../_images/15-shareproject-eclipse.png" src="../_images/15-shareproject-eclipse.png" />
+<p class="caption"><span class="caption-text">プロジェクトの共用</span><a class="headerlink" href="#id13" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>リポジトリーを作成しないと先へ進めない(<span class="guilabel">完了</span> がグレー状態)仕組みになっています。
+ということでリポジトリーを作る必要があります。
+実はEclipseでは2つの方法が用意されています。</p>
+<div class="figure align-default" id="id14">
+<img alt="../_images/16-newrepository-eclipse.png" src="../_images/16-newrepository-eclipse.png" />
+<p class="caption"><span class="caption-text">プロジェクトの共用画面</span><a class="headerlink" href="#id14" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<ul class="simple">
+<li><p><span class="guilabel">プロジェクトの親フォルダー内のリポジトリーを使用または作成</span> のチェックを使う</p></li>
+<li><p>別の場所に用意されるリポジトリ専用エリア(ディレクトリ)にリポジトリを作ってプロジェクトを用意(<span class="guilabel">作成</span> ボタンから設定)</p></li>
+</ul>
+<div class="section" id="id2">
+<h3>「プロジェクトの親フォルダー内のリポジトリーを使用または作成」 のチェックを使う<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>一般的なgitを用いた共有であれば、このチェックを使うと楽に行えます。
+この場合、プロジェクトのディレクトリの中に <code class="file docutils literal notranslate"><span class="pre">.git</span></code> ディレクトリを作成し、リポジトリ構造をディレクトリ内で内包するスタイルとなります。
+構造上、ここまでの話のものと同じになります。</p>
+<div class="figure align-default" id="id15">
+<img alt="../_images/repo-local-00.png" src="../_images/repo-local-00.png" />
+<p class="caption"><span class="caption-text">init直後の状態(再掲)</span><a class="headerlink" href="#id15" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>ただ、Eclipseではプロジェクトを作っては消すような行為が案外多く、その際に「ストレージから除去」するとリポジトリ自体も巻き添えで消えることになるため(プロジェクトのディレクトリそのものを消しますから)、復活が一切行えなくなってしまいます。
+個人的なプロジェクトで「その時だけ履歴管理が行えればいい」という場合はこちらでも良いと思います。</p>
+<p>チェックを付けた場合、設定が出ます。</p>
+<div class="figure align-default" id="id16">
+<img alt="../_images/17-createrepo-eclipse.png" src="../_images/17-createrepo-eclipse.png" />
+<p class="caption"><span class="caption-text">プロジェクトのディレクトリの中にリポジトリを作る方法</span><a class="headerlink" href="#id16" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>初期状態ではチェックを付けられませんが、:guilabel`作成` によりリポジトリのディレクトリを作成すると検出されてチェックが付きます <a class="footnote-reference brackets" href="#ui" id="id3">1</a> 。
+チェックが付けば先へ進めるようになりますので進めてください。</p>
+<p>メインウィンドウに戻りますが、よく見ると、プロジェクト憑依jの所にささやかに変更が入ります。</p>
+<div class="figure align-default" id="id17">
+<img alt="../_images/18-inrepo-eclipse.png" src="../_images/18-inrepo-eclipse.png" />
+<p class="caption"><span class="caption-text">プロジェクトの所にマークがささやかに入った状態</span><a class="headerlink" href="#id17" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>これでgitで管理された状態になっています。</p>
+</div>
+<div class="section" id="id4">
+<h3>別の場所に用意されるリポジトリ専用エリアを使用する<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>プロジェクトのディレクトリとは独立した場所にリポジトリを作成し、そこにプロジェクトを移動させます(ワークスペースから移動してしまう)。
+前述度同様に、 gitsample2プロジェクトを作成して、共用の設定を開き、今度は <span class="guilabel">作成</span> ボタンを使って進めます。</p>
+<div class="figure align-default" id="id18">
+<img alt="../_images/19-newrepo-eclipse.png" src="../_images/19-newrepo-eclipse.png" />
+<p class="caption"><span class="caption-text">独立したリポジトリの作成</span><a class="headerlink" href="#id18" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>サブウィンドウにてリポジトリの場所を確認してきます。標準状態では <strong>ユーザーのホーム/git/適当なリポジトリ名</strong> となります。
+名前部分は適宜変更し、プロジェクト名にあわせておくとわかりやすくなると思いますが、ここではそのままにしておきます。
+<span class="guilabel">完了</span> ボタンを押せばリポジトリが作成されます。</p>
+<div class="figure align-default" id="id19">
+<img alt="../_images/20-created-eclipse.png" src="../_images/20-created-eclipse.png" />
+<p class="caption"><span class="caption-text">独立したリポジトリの作成後</span><a class="headerlink" href="#id19" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>こちらも <span class="guilabel">完了</span> ボタンを押せば準備が終わります。</p>
+<div class="figure align-default" id="id20">
+<img alt="../_images/21-movedproject-eclipse.png" src="../_images/21-movedproject-eclipse.png" />
+<p class="caption"><span class="caption-text">プロジェクトの準備完了</span><a class="headerlink" href="#id20" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>暗黙のうちにプロジェクトのディレクトリが移動した形になっています。といったもプロジェクトの進め方に違いはありません。</p>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="ui"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
+<dd><p>このUIはなんか違和感を感じるのですが私だけ?</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

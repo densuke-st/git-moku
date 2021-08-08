@@ -98,7 +98,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#id2">取得元を確認する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#clone">cloneを行う</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id3">コマンドラインで行う</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ide">IDEで行う</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vscode">vscodeで行う</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#eclipse">Eclipseで行う</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maven">Mavenプロジェクトなどの場合</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#zip">zipと何が違うの?</a></li>
@@ -199,14 +201,14 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/densuke-st/hello-world">densuke-st/hello-world</a></p></li>
 </ul>
-<div class="figure align-default" id="id7">
+<div class="figure align-default" id="id9">
 <img alt="../_images/01-densuke-st-hello-world.png" src="../_images/01-densuke-st-hello-world.png" />
-<p class="caption"><span class="caption-text">densuke-st/hello-world</span><a class="headerlink" href="#id7" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">densuke-st/hello-world</span><a class="headerlink" href="#id9" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p>Githubの場合は、コード取得として緑色の <span class="guilabel">Code</span> 部分から、取得が可能です。</p>
-<div class="figure align-default" id="id8">
+<div class="figure align-default" id="id10">
 <img alt="../_images/02-click-code.png" src="../_images/02-click-code.png" />
-<p class="caption"><span class="caption-text">Codeボタンを押したとき</span><a class="headerlink" href="#id8" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">Codeボタンを押したとき</span><a class="headerlink" href="#id10" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p>通常は &quot;HTTPS&quot; タブで確認できるURLを使うと良いでしょう。</p>
 <div class="admonition note">
@@ -223,8 +225,8 @@ clone操作は指定されたURLに存在する「リポジトリ」のクロー
 <h3>コマンドラインで行う<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>コマンドラインから行う場合、対象となるディレクトリにて <strong class="command">git</strong> を実行します。
 ここでは <a class="reference external" href="https://github.com/densuke-st/hello-world">densuke-st/hello-world</a> のclone URLを用いて行います。</p>
-<div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">git clone処理</span><a class="headerlink" href="#id9" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">git clone処理</span><a class="headerlink" href="#id11" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> Linux/macOS
 <span class="gp">$</span> git clone https://github.com/densuke-st/hello-world.git
 
@@ -233,9 +235,9 @@ clone操作は指定されたURLに存在する「リポジトリ」のクロー
 </pre></div>
 </div>
 </div>
-<div class="figure align-default" id="id10">
+<div class="figure align-default" id="id12">
 <img alt="../_images/03-git-clone.png" src="../_images/03-git-clone.png" />
-<p class="caption"><span class="caption-text">git cloneによるコード取得</span><a class="headerlink" href="#id10" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">git cloneによるコード取得</span><a class="headerlink" href="#id12" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
@@ -251,12 +253,95 @@ clone操作は指定されたURLに存在する「リポジトリ」のクロー
 なお、 <a class="reference external" href="https://github.com/densuke-st/hello-world">densuke-st/hello-world</a> の <code class="file docutils literal notranslate"><span class="pre">Java/Maven</span></code> ディレクトリはEclipseにてインポート可能にしてます。</p>
 <p>このように、取得用URLがわかれば、自分の手元にコードのコピーを持つことが可能です。</p>
 </div>
-<div class="section" id="ide">
-<h3>IDEで行う<a class="headerlink" href="#ide" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="vscode">
+<h3>vscodeで行う<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="admonition-todo admonition" id="id6">
 <p class="admonition-title">課題</p>
-<p>Eclipse等の作業について書いておく</p>
+<p>vscodeの作業について書いておく</p>
 </div>
+</div>
+<div class="section" id="eclipse">
+<h3>Eclipseで行う<a class="headerlink" href="#eclipse" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Eclipseで他の方のリポジトリをcloneする場合、プロジェクトのインポートを使って行います。
+ただし、状況として、以下のものを考えておく必要があります。</p>
+<dl class="simple">
+<dt>Eclipseプロジェクトのgit共有</dt><dd><p>Eclipseのプロジェクトをgitにそのまま上げてしまう状況です。素直にインポートできますが、ライブラリ環境の設定などが同一になっていないと機能しないため、実際はそれほど使われません。</p>
+</dd>
+<dt>Mavenなどの開発ツールを使った共有</dt><dd><p>プロジェクトの構造をMavenなどの開発ツールで構成した状態でgitによる共有をおこなっています。中で必要な情報は論理的に設定しており、必要なライブラリなども記述されているため、取得後に該当するライブラリを自動的に構成して同期できます。
+現実的な開発ではこのスタイルが基本です。
+ただしEclipseで使う場合は、歴史的経緯から「SVNからインポート」の扱いになります(後述)</p>
+</dd>
+</dl>
+<p>Eclipseプロジェクト自体をgitで共有している場合は、インポート設定にて <span class="guilabel">Git --&gt; Gitからプロジェクト</span> となります。
+スマートプロジェクト側にしておくと「よしなに」やってくれるので、慣れない間はこちらが楽だと思います。</p>
+<div class="figure align-default" id="id13">
+<img alt="../_images/22-import-from-github-eclipse.png" src="../_images/22-import-from-github-eclipse.png" />
+<p class="caption"><span class="caption-text">EclipseからGit上のEclipseプロジェクトを指定する</span><a class="headerlink" href="#id13" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>続いての取得方法はURIを指定する形で進めてください。</p>
+<div class="figure align-default" id="id14">
+<img alt="../_images/23-import-from-eclipse.png" src="../_images/23-import-from-eclipse.png" />
+<p class="caption"><span class="caption-text">インポート元の指定</span><a class="headerlink" href="#id14" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>クローン用のURLを取得し、渡しましょう。
+ここでは、 <a class="reference external" href="https://github.com/densuke-st/eclipse-clonesample">densuke-st/eclipse-clonesample</a> から取得して行ってみます。</p>
+<div class="figure align-default" id="id15">
+<img alt="../_images/24-set-githubURL-eclipse.png" src="../_images/24-set-githubURL-eclipse.png" />
+<p class="caption"><span class="caption-text">プロジェクトのクローン用URLを貼り付け</span><a class="headerlink" href="#id15" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>URLを貼り付けることで、必要項目のほとんどは自動的に補完されます。
+ユーザー名・パスワードは空のままでも取得するだけなら問題ありませんので記入不要です。</p>
+<p>URLが認識され、リポジトリにアクセスされると、ブランチというものを確認してきますが、特に今はいじる必要ありません。</p>
+<div class="figure align-default" id="id16">
+<img alt="../_images/25-select-branch-eclipse.png" src="../_images/25-select-branch-eclipse.png" />
+<p class="caption"><span class="caption-text">ブランチの指定(そのままで良い)</span><a class="headerlink" href="#id16" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>gitでは <strong>ブランチ</strong> という概念で並行した開発が行えます。各ブランチごとに名前が付いているのですが、デフォルトのブランチ名は現在 <cite>main</cite> となっている <a class="footnote-reference brackets" href="#mainbranch" id="id7">1</a> ので、こちらを指定するのが一般的です。</p>
+<p>ローカルブランチの設定はクローン元に基本的に準じますので、通常はいじる要素はありません、そのまま進めます。</p>
+<div class="figure align-default" id="id17">
+<img alt="../_images/26-set-local-eclipse.png" src="../_images/26-set-local-eclipse.png" />
+<p class="caption"><span class="caption-text">ローカルブランチの設定</span><a class="headerlink" href="#id17" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>取得後、コード中に含まれる設定を読み取ってEclipseプロジェクトを検出することで、プロジェクトの設定にそのまま進みます。</p>
+<div class="figure align-default" id="id18">
+<img alt="../_images/27-import-project-eclipse.png" src="../_images/27-import-project-eclipse.png" />
+<p class="caption"><span class="caption-text">プロジェクトのインポート</span><a class="headerlink" href="#id18" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>完了することで、プロジェクトのインポート処理が完了し、編集可能になります。</p>
+</div>
+<div class="section" id="maven">
+<h3>Mavenプロジェクトなどの場合<a class="headerlink" href="#maven" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference external" href="https://maven.apache.org/">Maven</a> や <a class="reference external" href="https://gradle.org/">Gradle</a> など、ビルドを管理するフレームワークを使っている場合、
+Eclipseプロジェクトと異なり、(設定次第ですが)論理的な設定を元に必要なライブラリ情報などを取り込んで動かせます</p>
+<p>ただしEclipseのプロジェクトではないため、内部的にEclipseプロジェクトとして見せるためのプラグインというものを通すことで、透過的に扱えるようになっています。</p>
+<ul>
+<li><dl>
+<dt>Mavenの利用であれば <a class="reference external" href="https://www.eclipse.org/m2e/">M2Eclipse</a> をインストール</dt><dd><ul>
+<li><p>学校配布のEclipseでは標準で組み込んでいます</p></li>
+<li><dl>
+<dt>ただしGit経由で取り込むための機能が入っていないため、SCMの追加(<span class="menuselection">インポート ‣ SVNからMavenプロジェクトをインポート ‣ m2eマーケットプレース</span> でegitプラグインを足す必要があります</dt><dd><div class="figure align-default" id="id19">
+<img alt="../_images/31-scmplugin-eclipse.png" src="../_images/31-scmplugin-eclipse.png" />
+<p class="caption"><span class="caption-text">m2e用のプラグイン追加マーケットプレース</span><a class="headerlink" href="#id19" title="この画像へのパーマリンク">¶</a></p>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Gradleの利用であれば、マーケットプレース(<span class="menuselection">ヘルプ ‣ Eclipseマーケットプレース</span>) にてGradle向けのプラグインを検索して入れることができます。ただ私はEclipseにてはGradleを使っていないので各自で調べてください</p></li>
+</ul>
+<p>インポート時に  <span class="menuselection">インポート ‣ SVNからMavenプロジェクトをチェックアウト</span> で進めてもらうと、Gitのクローン用URLを渡すことでMavenプロジェクトを取り込めます。</p>
+<div class="figure align-default" id="id20">
+<img alt="../_images/28-checkout-mvn-eclipse.png" src="../_images/28-checkout-mvn-eclipse.png" />
+<p class="caption"><span class="caption-text">SVNからMavenプロジェクトをチェックアウト ※SVNだけど気にしない</span><a class="headerlink" href="#id20" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<div class="figure align-default" id="id21">
+<img alt="../_images/29-me2git-clone-eclipse.png" src="../_images/29-me2git-clone-eclipse.png" />
+<p class="caption"><span class="caption-text">Clone用のURLを渡す</span><a class="headerlink" href="#id21" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>あとは指示に従うことでEclipseプロジェクトをインポートし、ライブラリ類を裏で取得して利用可能になります。</p>
 </div>
 </div>
 <div class="section" id="zip">
@@ -272,8 +357,8 @@ clone操作は指定されたURLに存在する「リポジトリ」のクロー
 </dl>
 </li>
 <li><dl>
-<dt>誰かが更新したときに、更新分を取得可能です(pullの挙動は後ほど入ります)</dt><dd><div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-text">コードの更新(git pull)</span><a class="headerlink" href="#id11" title="このコードへのパーマリンク">¶</a></div>
+<dt>誰かが更新したときに、更新分を取得可能です(pullの挙動は後ほど入ります)</dt><dd><div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-text">コードの更新(git pull)</span><a class="headerlink" href="#id22" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> git pull
 <span class="go">remote: Enumerating objects: 21, done.</span>
 <span class="go">remote: Counting objects: 100% (21/21), done.</span>
@@ -293,6 +378,12 @@ clone操作は指定されたURLに存在する「リポジトリ」のクロー
 </dl>
 </li>
 </ul>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="mainbranch"><span class="brackets"><a class="fn-backref" href="#id7">1</a></span></dt>
+<dd><p>一昔前だと <cite>master</cite> 一択だったのですが、諸事情により主系統ブランチの設定が変更されています。ただしすべて <cite>main</cite> であるわけでもなく、 <cite>development</cite> など多少のばらつきがあります。どのブランチが主系統になるかは開発者に確認すると良いでしょう。</p>
+</dd>
+</dl>
 </div>
 </div>
 
