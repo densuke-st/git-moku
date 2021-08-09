@@ -42,7 +42,7 @@
     
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="レベル2: ブランチ操作" href="../lv2/index.html" />
+    <link rel="next" title="まとめ" href="post.html" />
     <link rel="prev" title="新規にリポジトリを作る" href="init.html" /> 
 </head>
 
@@ -100,12 +100,18 @@
 <li class="toctree-l3"><a class="reference internal" href="#id2">ファイルの登録</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">コミット</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#vscode">vscodeでの操作</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#eclipse">Eclipseでの操作</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">ファイルを編集してみる</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">今度は自分でやってみよう</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">ファイルを編集してみる</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">今度は自分でやってみよう</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">素でやるかvscodeの方向け</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Eclipseの方向け</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="post.html">まとめ</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../lv2/index.html">レベル2: ブランチ操作</a></li>
@@ -185,16 +191,16 @@
 <h2>ファイルの登録<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ワークツリーとなったこのディレクトリ上にPythonのコードをひとつ作ってください。
 作成方法は問いません。まずは基本となるコマンドラインからです。</p>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">コマンドラインからPythonスクリプトを作成(UNIX)</span><a class="headerlink" href="#id6" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">コマンドラインからPythonスクリプトを作成(UNIX)</span><a class="headerlink" href="#id10" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;print(&#39;Hello&#39;)&quot;</span> &gt; sample1.py
 <span class="gp">$</span> python sample1.py
 <span class="go">Hello</span>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">コマンドラインからPythonスクリプトを作成(PowerShell)</span><a class="headerlink" href="#id7" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">コマンドラインからPythonスクリプトを作成(PowerShell)</span><a class="headerlink" href="#id11" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">PS&gt; echo &quot;print(&#39;Hello&#39;)&quot; | Out-File -Encoding utf8 sample1.py</span>
 <span class="go">PS&gt; python sample1.py</span>
 <span class="go">Hello</span>
@@ -202,8 +208,8 @@
 </div>
 </div>
 <p>この状態で、以下のコマンドを使ってみてください。</p>
-<div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">ファイル状態の確認</span><a class="headerlink" href="#id8" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">ファイル状態の確認</span><a class="headerlink" href="#id12" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 1 </span><span class="gp">$</span> git status
 <span class="lineno"> 2 </span><span class="go">On branch development</span>
 <span class="lineno"> 3 </span>
@@ -223,8 +229,8 @@
 <li><p>6行目: Un-track-ed(まだ <strong>追跡</strong> されていない)という状態、git的に野良なものであり、これを <strong>追加</strong> することで変更の <strong>追跡</strong> が行われるようになります</p></li>
 </ul>
 <p>ということで、追跡してもらうためにも追加処理を行います。</p>
-<div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">sample1.pyの追加</span><a class="headerlink" href="#id9" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">sample1.pyの追加</span><a class="headerlink" href="#id13" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="hll"><span class="gp">$</span> git add sample1.py
 </span><span class="lineno">2 </span><span class="gp">$</span> git status
 <span class="lineno">3 </span><span class="go">On branch development</span>
@@ -244,14 +250,14 @@
 <li><p>9行目: 新規ファイルとしてのsample1.py</p></li>
 </ul>
 <p>このとき、ディレクトリ・ファイル達はこのような関係で構成されます。</p>
-<div class="figure align-default" id="id10">
+<div class="figure align-default" id="id14">
 <img alt="../_images/repo-local-01.png" src="../_images/repo-local-01.png" />
-<p class="caption"><span class="caption-text">add前の状態</span><a class="headerlink" href="#id10" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">add前の状態</span><a class="headerlink" href="#id14" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p>addすると、リポジトリ域の中に用意されている <strong>ステージ</strong> という領域に追加したファイルのコピーが配置されます。</p>
-<div class="figure align-default" id="id11">
+<div class="figure align-default" id="id15">
 <img alt="../_images/repo-local-02.png" src="../_images/repo-local-02.png" />
-<p class="caption"><span class="caption-text">add後の状態</span><a class="headerlink" href="#id11" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">add後の状態</span><a class="headerlink" href="#id15" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p>ステージ域は <strong>次にコミットされるべき情報</strong> が配置されます。
 逆に考えれば、敢えてステージに入れなければコミットされないということになります。</p>
@@ -262,8 +268,8 @@
 一種のセーブポイントと考えて良いでしょう。</p>
 <p>このとき <strong>なんのためのコミットか</strong> をきちんと書く必要がありますが、最低1行「なんのためか」を書けばさしあたりなんとかなります。
 これはコミット処理を行う <strong class="command">git commit</strong> の時に <strong class="command">-m メッセージ</strong> で1行コメントを渡せます。</p>
-<div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-text">コミット</span><a class="headerlink" href="#id12" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">コミット</span><a class="headerlink" href="#id16" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="gp">$</span> git commit -m <span class="s2">&quot;練習用Pythonスクリプトの作成&quot;</span>
 </span><span class="go">[development (root-commit) ad05401] 練習用Pythonスクリプトの作成</span>
 <span class="go"> 1 file changed, 1 insertion(+)</span>
@@ -274,54 +280,124 @@
 <p>この操作により、ステージに入っていたファイル <code class="file docutils literal notranslate"><span class="pre">sample1.py</span></code> は各種メタデータと一緒にまとめられてリポジトリにその時の状態で固定化されます。</p>
 <p>この際、コミットIDと呼ばれる固有値(ハッシュ)が生成され、ステージ状態のスナップショットに対するアドレスとして機能するようになります。
 上記の出力では <cite>ad05401</cite> が該当しています。</p>
-<div class="figure align-default" id="id13">
+<div class="figure align-default" id="id17">
 <img alt="../_images/repo-local-03.png" src="../_images/repo-local-03.png" />
-<p class="caption"><span class="caption-text">commit後の状態</span><a class="headerlink" href="#id13" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">commit後の状態</span><a class="headerlink" href="#id17" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <div class="section" id="vscode">
 <h3>vscodeでの操作<a class="headerlink" href="#vscode" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>vscodeでも考え方は同じです。
 リポジトリ内でファイルを作ると、ソース管理のアイコンに対象となり得るファイル数が通知で出力されます。</p>
-<div class="figure align-default" id="id14">
+<div class="figure align-default" id="id18">
 <img alt="../_images/09-newfile-vscode.png" src="../_images/09-newfile-vscode.png" />
-<p class="caption"><span class="caption-text">vscode上で新規(更新)が認識されている状態</span><a class="headerlink" href="#id14" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">vscode上で新規(更新)が認識されている状態</span><a class="headerlink" href="#id18" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p>ソース管理に切り替えると、新規か更新されたファイルがリストアップされます。</p>
-<div class="figure align-default" id="id15">
+<div class="figure align-default" id="id19">
 <img alt="../_images/10-files-vscode.png" src="../_images/10-files-vscode.png" />
-<p class="caption"><span class="caption-text">作ったばかりのファイルのため、まだUntrack状態のファイルとして認識されている</span><a class="headerlink" href="#id15" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">作ったばかりのファイルのため、まだUntrack状態のファイルとして認識されている</span><a class="headerlink" href="#id19" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p>ということで、+ボタンを使って対象ファイルをステージに上げておきます。</p>
-<div class="figure align-default" id="id16">
+<div class="figure align-default" id="id20">
 <img alt="../_images/11-staged-vscode.png" src="../_images/11-staged-vscode.png" />
-<p class="caption"><span class="caption-text">ステージに上げた状態</span><a class="headerlink" href="#id16" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">ステージに上げた状態</span><a class="headerlink" href="#id20" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p>あとはコミットメッセージを書いて登録すればリポジトリにコミットされます。</p>
-<div class="figure align-default" id="id17">
+<div class="figure align-default" id="id21">
 <img alt="../_images/12-commitmsg-vscode.png" src="../_images/12-commitmsg-vscode.png" />
-<p class="caption"><span class="caption-text">メッセージを書いた状態、右上のチェック(✓)記号かCtrl+Enterでステージをコミットします</span><a class="headerlink" href="#id17" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">メッセージを書いた状態、右上のチェック(✓)記号かCtrl+Enterでステージをコミットします</span><a class="headerlink" href="#id21" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p>コミット後、下部のcommitsを展開すると、コミット履歴として確認ができます。</p>
-<div class="figure align-default" id="id18">
+<div class="figure align-default" id="id22">
 <img alt="../_images/13-commits-vscode.png" src="../_images/13-commits-vscode.png" />
-<p class="caption"><span class="caption-text">コミット状態の確認</span><a class="headerlink" href="#id18" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">コミット状態の確認</span><a class="headerlink" href="#id22" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p>ソース管理では、コミット状態のグラフとなるcommits意外に、現在操作中のファイルの変更履歴を見るfile historyなど、それなりに役立つ情報が確認できます。ただしこれらはgitの仕組みがある程度理解できないと使えないので、参考程度に見るようにしておきましょう。</p>
 </div>
+<div class="section" id="eclipse">
+<h3>Eclipseでの操作<a class="headerlink" href="#eclipse" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>EclipseではJavaで行ってみましょう。
+さしあたり、git下にあるプロジェクトにおいて、Javaのクラス(ここでは <code class="code docutils literal notranslate"><span class="pre">Sample1</span></code>)を通常の手順で作成するとします(<code class="code docutils literal notranslate"><span class="pre">main</span></code> スタブ有り)。</p>
+<div class="figure align-default" id="id23">
+<img alt="../_images/32-newclass-eclipse.png" src="../_images/32-newclass-eclipse.png" />
+<p class="caption"><span class="caption-text">新規クラス(<code class="code docutils literal notranslate"><span class="pre">Sample1</span></code>)を作成したところ</span><a class="headerlink" href="#id23" title="この画像へのパーマリンク">¶</a></p>
 </div>
-<div class="section" id="id4">
-<h2>ファイルを編集してみる<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このファイルを作成すると(既に初期状態で保存されている)、パッケージ・エクスプローラーにてはてな(?)マークが付きます。</p>
+<div class="figure align-default" id="id24">
+<img alt="../_images/33-hatena.png" src="../_images/33-hatena.png" />
+<p class="caption"><span class="caption-text">新規のファイルに付いたはてなマーク</span><a class="headerlink" href="#id24" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>この状態は、gitにとって新規(untracked)であることを示しています。
+作ったばかりのファイルは当然gitでの追跡対象にはまだ含まれていません。</p>
+<p>ということでこれを登録してみます。方法はいくつかありますが、いずれもコンテキストメニューの  <span class="menuselection">チーム</span> から行います。</p>
+<ul class="simple">
+<li><p>該当ファイルを「索引に追加」することでステージに上げる</p></li>
+<li><p>「コミット」でまとめてステージに上げていきなりコミットへ</p></li>
+</ul>
+<p><code class="code docutils literal notranslate"><span class="pre">Sample1</span></code> については、ステージに上げるだけにしておきます。
+もうひとつクラスを作り、直接コミットへ飛ばして違いを見てみましょう。</p>
+<div class="figure align-default" id="id25">
+<img alt="../_images/34-add-eclipse.png" src="../_images/34-add-eclipse.png" />
+<p class="caption"><span class="caption-text">ステージに上げるとマークが変わる</span><a class="headerlink" href="#id25" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>同様にクラス <code class="code docutils literal notranslate"><span class="pre">Sample2</span></code> を作成しておきます(手順は省略)。
+こちらは  <span class="menuselection">チーム ‣ コミット</span> を使って操作してみたいと思います。</p>
+<div class="figure align-default" id="id26">
+<img alt="../_images/35-staging-eclipse.png" src="../_images/35-staging-eclipse.png" />
+<p class="caption"><span class="caption-text">gitステージングのウィンドウ(タブ)</span><a class="headerlink" href="#id26" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>ステージに上がっていないファイル達がリストアップされています。
+この中で次のコミットに含めたいファイルがあれば該当ファイルを選び(複数選択可能)、 <span class="guilabel">+</span> にて <strong>ステージされた変更</strong> に移動します。
+<span class="guilabel">++</span>  を使えばひとまとめで移動させることもできます。
+逆に含めたくない(今回のコミットには含めない)のであれば逆に <span class="guilabel">-</span>/<span class="guilabel">--</span> にて下げることも可能です。</p>
+<p>ステージの状態でコミットしようというのであれば、コミットメッセージを書いてコミットすればOKです。
+ただし、コミットは現時点では <span class="guilabel">コミット</span> となります、
+<span class="guilabel">コミットおよびプッシュ</span> は使えません。</p>
+<div class="figure align-default" id="id27">
+<img alt="../_images/36-commit-eclipse.png" src="../_images/36-commit-eclipse.png" />
+<p class="caption"><span class="caption-text">コミット処理</span><a class="headerlink" href="#id27" title="この画像へのパーマリンク">¶</a></p>
+</div>
+<p>EclipseのUI部分でざっくりまとめると、</p>
+<ul class="simple">
+<li><p>ファイルやディレクトリにマーク(?, +, <a href="#id4"><span class="problematic" id="id5">*</span></a>)がついて状態をある程度表示してくれています</p></li>
+<li><p>個別に索引(ステージ)に入れたり、ひとまとめで入れたりすることが可能です</p></li>
+<li><p>gitステージングのウィンドウ(タブ)にてコミット処理が行えます</p></li>
+</ul>
+<p>なお、プロジェクト構成のファイル(<code class="file docutils literal notranslate"><span class="pre">.project</span></code> や <code class="file docutils literal notranslate"><span class="pre">.classpath</span></code>)も適宜変更されますので、Eclipseのプロジェクトとして共有するのであれば、これらもコミットした方が良いでしょう。</p>
+<ul class="simple">
+<li><p><code class="file docutils literal notranslate"><span class="pre">Sample2.java</span></code> をコミットしてみましょう(<code class="file docutils literal notranslate"><span class="pre">Sample1.java</span></code> と一緒に)</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">.project</span></code>/<code class="file docutils literal notranslate"><span class="pre">.classpath</span></code> をコミットしてみましょう(Javaソースとは別でコミット)</p></li>
+<li><p>file:<cite>.gitignore</cite> をコミットしてみましょう(これも別で)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>gitステージングをよく見ると、 <code class="file docutils literal notranslate"><span class="pre">.gitignore</span></code> というものが目に入ると思います。
+このファイルは、gitが管理対象とみなさないファイル(のパターン)を格納するためのもので、作成すると、そのディレクトリおよびサブディレクトリに適用されます。
+ディレクトリであれば末尾に <code class="code docutils literal notranslate"><span class="pre">/</span></code> を加えることでディレクトリとその中身を対象から除外できます。
+この仕組みを利用することで <strong>ビルドすれば得られるデータのある場所</strong> については対象外とすることができますし、基本的にそのように構成します。
+Eclipseの中では自動的に <code class="file docutils literal notranslate"><span class="pre">bin</span></code> ディレクトリ(裏で自動的にビルドした結果の入る場所)を除外するようにしています。
+必要であればこのファイルの中は書き換えてもらってもかまいませんが、このファイルをもコミットして管理下におくようにしてください。</p>
+<p>そういう意味では、最初のコミットの際に <code class="file docutils literal notranslate"><span class="pre">.project</span></code> などと共にコミットしておくのが安全です。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>ファイルを編集してみる<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Python(素およびvscode)向けに書いていますが、Eclipse(Java)であっても原則は同じなので、適当にJavaコード的に読み替えて操作してみましょう。</p>
+</div>
 <p><code class="file docutils literal notranslate"><span class="pre">sample1.py</span></code> を編集し、出力内容を変更してみましょう。</p>
-<div class="literal-block-wrapper docutils container" id="id19">
-<div class="code-block-caption"><span class="caption-text">sample1.pyの修正(出力内容変更)</span><a class="headerlink" href="#id19" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id28">
+<div class="code-block-caption"><span class="caption-text">sample1.pyの修正(出力内容変更)</span><a class="headerlink" href="#id28" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello, World&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <p>この場合、ステージ上に前の状態の <code class="file docutils literal notranslate"><span class="pre">sample1.py</span></code> ファイルが残っており、ワークツリー(<code class="file docutils literal notranslate"><span class="pre">.git</span></code> の外)の <code class="file docutils literal notranslate"><span class="pre">sample1.py</span></code> との間で内容が違うということになります。
 この状態をgitは検出できます(<strong class="command">git status</strong>)。</p>
-<div class="literal-block-wrapper docutils container" id="id20">
-<div class="code-block-caption"><span class="caption-text">変更の検出</span><a class="headerlink" href="#id20" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id29">
+<div class="code-block-caption"><span class="caption-text">変更の検出</span><a class="headerlink" href="#id29" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> git status
 <span class="go">On branch development</span>
 <span class="go">Changes not staged for commit:</span>
@@ -335,8 +411,8 @@
 </div>
 <p>6行目にあるように「変更されている(modified)」というマークが付いています。
 ステージ上に残っているものとの比較も可能です(<strong class="command">git diff</strong>)</p>
-<div class="literal-block-wrapper docutils container" id="id21">
-<div class="code-block-caption"><span class="caption-text">diffの取得</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id30">
+<div class="code-block-caption"><span class="caption-text">diffの取得</span><a class="headerlink" href="#id30" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> git diff
 <span class="go">diff --git a/sample1.py b/sample1.py</span>
 <span class="go">index c324c2e..f93eac0 100644</span>
@@ -349,13 +425,13 @@
 </div>
 </div>
 <p>diffはunified diff形式となっており、 &quot;-&quot;の部分が&quot;+&quot;に置換されることを示しています。</p>
-<div class="figure align-default" id="id22">
+<div class="figure align-default" id="id31">
 <img alt="../_images/repo-local-04.png" src="../_images/repo-local-04.png" />
-<p class="caption"><span class="caption-text">ワークツリー上を変更するとステージと食い違うことになる</span><a class="headerlink" href="#id22" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">ワークツリー上を変更するとステージと食い違うことになる</span><a class="headerlink" href="#id31" title="この画像へのパーマリンク">¶</a></p>
 </div>
 <p>この状態を登録するために、追加してコミットしてみます。</p>
-<div class="literal-block-wrapper docutils container" id="id23">
-<div class="code-block-caption"><span class="caption-text">変更したファイルの追加コミット</span><a class="headerlink" href="#id23" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id32">
+<div class="code-block-caption"><span class="caption-text">変更したファイルの追加コミット</span><a class="headerlink" href="#id32" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> 追加する
 <span class="gp">$</span> git add sample1.py
 
@@ -375,22 +451,31 @@
 </pre></div>
 </div>
 </div>
-<div class="figure align-default" id="id24">
+<div class="figure align-default" id="id33">
 <img alt="../_images/repo-local-05.png" src="../_images/repo-local-05.png" />
-<p class="caption"><span class="caption-text">修正したファイルのコミット</span><a class="headerlink" href="#id24" title="この画像へのパーマリンク">¶</a></p>
+<p class="caption"><span class="caption-text">修正したファイルのコミット</span><a class="headerlink" href="#id33" title="この画像へのパーマリンク">¶</a></p>
 </div>
-<p>同様の操作はvscodeでももちろん行えます。
-<code class="file docutils literal notranslate"><span class="pre">sample1.py</span></code> の書き換えをさらにvscode上で行い、適宜追加・コミットを試してみましょう。</p>
+<p>同様の操作はvscodeやEclipseでももちろん行えます。
+それぞれのワークツリー上にあるファイルを書き換えて、変更されたファイルのみをコミットしてみましょう。</p>
 </div>
-<div class="section" id="id5">
-<h2>今度は自分でやってみよう<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id7">
+<h2>今度は自分でやってみよう<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>今度は自分でやってみましょう。</p>
+<div class="section" id="id8">
+<h3>素でやるかvscodeの方向け<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ol class="arabic simple">
 <li><p><code class="file docutils literal notranslate"><span class="pre">sample2.py</span></code> を作ってみましょう、内容は何でも良いです(コードとしてエラーでない範囲で)。</p></li>
 <li><p><code class="file docutils literal notranslate"><span class="pre">sample2.py</span></code> をコミットしてみましょう。コミットメッセージはお好きにどうぞ。</p></li>
 <li><p>このとき、ワークツリー状態とステージ、(狭義の)リポジトリ部分がどうなっているかを図示してみましょう。</p></li>
 </ol>
-<p>vscodeやEclipseでも同様の操作で行えますから、自分でファイルを作ってコミットしていきましょう。</p>
+</div>
+<div class="section" id="id9">
+<h3>Eclipseの方向け<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ol class="arabic simple">
+<li><p>クラス <code class="code docutils literal notranslate"><span class="pre">Sample3</span></code> を作り(中身は問わない)、コミットしてみましょう。</p></li>
+<li><p>同様に、ワークツリーの状態とステージ、リポジトリ部分がどうなっているかを図辞してみましょう。</p></li>
+</ol>
+</div>
 </div>
 </div>
 
@@ -400,7 +485,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../lv2/index.html" class="btn btn-neutral float-right" title="レベル2: ブランチ操作" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="post.html" class="btn btn-neutral float-right" title="まとめ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="init.html" class="btn btn-neutral float-left" title="新規にリポジトリを作る" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
